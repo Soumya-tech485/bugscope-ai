@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BugScope AI</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <header>
+    <h1>BugScope AI</h1>
+    <p>Automated root-cause detection and AI-assisted fixing</p>
+  </header>
+
+  <main>
+    <section class="panel">
+      <h2>1. Upload Project</h2>
+      <input type="file" id="zipInput" accept=".zip" />
+      <button id="uploadBtn">Upload ZIP</button>
+      <div id="projectLabel" class="muted"></div>
+    </section>
+
+    <section class="panel">
+      <h2>2. Bug Details</h2>
+      <textarea id="bugReport" placeholder="Describe the bug..."></textarea>
+      <textarea id="errorTrace" placeholder="Paste stack trace or error output..."></textarea>
+      <button id="analyzeBtn">Analyze</button>
+      <button id="testBtn">Run Tests</button>
+      <div id="status" class="status"></div>
+    </section>
+
+    <section class="panel">
+      <h2>3. Suspects</h2>
+      <div id="suspects"></div>
+    </section>
+
+    <section class="panel">
+      <h2>4. Editor</h2>
+      <div id="fileInfo" class="muted"></div>
+
+      <input
+        id="fixInstructions"
+        placeholder="Optional fix instructions, e.g. handle zero division safely"
+      />
+
+      <div class="editor-actions">
+        <button id="fixBtn">Auto-fix Selected Suspect</button>
+        <button id="saveBtn">Save File</button>
+      </div>
+
+      <div id="editor"></div>
+
+      <h3>Test Output</h3>
+      <pre id="testOutput"></pre>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/vs/loader.js"></script>
+  <script src="/static/app.js"></script>
+</body>
+</html>
